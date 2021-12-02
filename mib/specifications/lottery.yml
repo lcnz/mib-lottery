@@ -6,4 +6,23 @@ info:
 servers:
   - url: /
 paths:
-  
+  /user/{id}:
+    get:
+      summary: retrieve the lottery row of the specified user
+      tags: [ Lottery ]
+      operationId: mib.resources.lottery.retrieve_by_id
+      parameters:
+        - name: id
+          description: User Unique ID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses: 
+        200:
+          description: Retrieve the user
+        404:
+          description: User not found
+        default:
+          description: Error while getting the user
