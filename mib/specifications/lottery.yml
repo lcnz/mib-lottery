@@ -6,7 +6,7 @@ info:
 servers:
   - url: /
 paths:
-  /user/{id}:
+  /lottery/{id}:
     get:
       summary: retrieve the lottery row of the specified user
       tags: [ Lottery ]
@@ -26,3 +26,20 @@ paths:
           description: User not found
         default:
           description: Error while getting the user
+    post:
+      summary: create a new lottery row for the specified user
+      tags: [ Lottery ]
+      operationId: mib.resources.lottery.lottery_create_user
+      parameters:
+        - name: id
+          description: User Unique ID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        201:
+          description: User created
+        default:
+          description: Error while creating the user

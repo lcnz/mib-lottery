@@ -13,3 +13,7 @@ class LotteryManager(Manager)
     def retrieve_by_id(id_):
         Manager.check_none(id=id_)
         return Lottery.query.get(id_)
+    
+    @staticmethod
+    def create_row(lottery: Lottery):
+        Manager.create(lottery=lottery)
