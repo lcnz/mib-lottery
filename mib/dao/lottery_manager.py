@@ -17,3 +17,7 @@ class LotteryManager(Manager):
     @staticmethod
     def create_row(lottery: Lottery):
         Manager.create(lottery=lottery)
+        
+    @staticmethod
+    def update_lottery_row(lottery: Lottery):
+        Manager.updte(lottery=lottery)

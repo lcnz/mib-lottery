@@ -43,3 +43,51 @@ paths:
           description: User created
         default:
           description: Error while creating the user
+  /lottery/select_number/{id}:
+    post:
+      summary: set the chosen number for lottery row of the specified user
+      tags: [ Lottery ]
+      operationId: mib.resources.lottery.select_number
+      parameters:
+        - name: id
+          description: User Unique ID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: update number for a row of the user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                val_: 
+                  type: integer
+                  description: new number selected for lottery
+              required: ['val_']
+              $ref: '#/components/schemas/Update_number'
+      responses: 
+        200:
+          description: Number setted
+        404:
+          description: row not found (user id not present)
+        default:
+          description: Error while getting the user
+
+
+
+components:
+  schemas:
+    Update_number:
+      required:
+        - val_
+      type: object
+      properties:
+        val_:
+          type: integer
+          description: number selected to insert in the row for ticket number
+          example: 23
+    

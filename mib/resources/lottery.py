@@ -3,13 +3,17 @@ from mib.dao.lottery_manager import LotteryManager
 from mib.models.lottery import Lottery
 from datetime import datetime as dt
 
+
 def retrieve_by_id(id):
-    user = LotteryManager.retrieve_by_id(id)
-    if user is None:
-        response = {'status': 'User not present'}
+    lottery_row = LotteryManager.retrieve_by_id(id)
+    if lottery_row is None:
+        response = {'status': 'Id of user not present'}
         return jsonify(response), 404
 
-    return jsonify(user.serialize()), 200 
+    print("THIS IS THE ROW: ")
+    print(lottery_row)
+    response = {'status': 'success', 'lottery_row': lottery_row.serialize()}
+    return jsonify(response), 200 
 
 
 # Creating the row for the user in the database (called when a user register himself)
@@ -35,3 +39,22 @@ def lottery_create_user(id):
     print("TRYING TO RETRIEVE THE ROW ---> ", retrieve_by_id(id))
 
     return {'status': 'success', 'about': 'lottery_user created'}, 201
+
+
+
+def select_number(id):
+    lottery_row = LotteryManager.retrieve_by_id(id)
+    if lottery_row is None:
+        response = {'status': 'Id of user not present'}
+        return jsonify(response), 404
+
+    #selecting the number
+    selected_number = request.get_json().get('number_selected')
+    lottery_row.set_ticket_number(selected_number)
+    LotteryManager.update_lottery_row(lottery_row)
+
+    #DEBUG
+    print("THE ROW HAS BEEN UPDATED")
+    print("NEW ROW: ---> ", retrieve_by_id(id))
+
+    return {'status': 'success', 'about': 'lottery number selected'}, 201
