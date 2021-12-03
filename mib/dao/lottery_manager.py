@@ -3,10 +3,10 @@ from mib.models.lottery import Lottery
 from sqlalchemy import update
 from mib import db
 
-class LotteryManager(Manager)
+class LotteryManager(Manager):
 
     @staticmethod
-    def create_user(lottery: Lottery):
+    def create_lottery(lottery: Lottery):
         Manager.create(lottery=lottery)
 
     @staticmethod

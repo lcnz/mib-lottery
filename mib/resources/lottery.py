@@ -33,3 +33,5 @@ def lottery_create_user(id):
     print("THE NEW ROW HAS BEEN CREATED")
     print("THE ID JUST ADDED IS ", id)
     print("TRYING TO RETRIEVE THE ROW ---> ", retrieve_by_id(id))
+
+    return {'status': 'success', 'about': 'lottery_user created'}, 201
