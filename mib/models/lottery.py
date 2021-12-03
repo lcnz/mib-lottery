@@ -23,6 +23,9 @@ class Lottery(db.Model):
 
     def set_points(self, points):
         self.points = points
+        
+    def add_points(self,points):
+        self.points += points
 
     def serialize(self):
         return dict([(k,self.__getattribute__(k)) for k in self.SERIALIZE_LIST])

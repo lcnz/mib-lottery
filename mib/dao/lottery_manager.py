@@ -13,11 +13,17 @@ class LotteryManager(Manager):
     def retrieve_by_id(id_):
         Manager.check_none(id=id_)
         return Lottery.query.get(id_)
-    
+
+    @staticmethod
+    def retrieve_active_players():
+        return Lottery.query.filter(Lottery.ticket_number != -1)
     @staticmethod
     def create_row(lottery: Lottery):
         Manager.create(lottery=lottery)
         
     @staticmethod
     def update_lottery_row(lottery: Lottery):
-        Manager.updte(lottery=lottery)
+        Manager.update(lottery=lottery)
+
+    @staticmethod
+    def check_winner()
