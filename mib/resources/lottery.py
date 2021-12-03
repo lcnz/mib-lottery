@@ -49,7 +49,10 @@ def select_number(id):
         return jsonify(response), 404
 
     #selecting the number
-    selected_number = request.get_json().get('number_selected')
+    print('SELEC NUMBEE --> ARRIVA QUESTO --> ', request.get_json())
+    
+    
+    selected_number = request.get_json().get('val_')
     lottery_row.set_ticket_number(selected_number)
     LotteryManager.update_lottery_row(lottery_row)
 
