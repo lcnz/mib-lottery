@@ -20,4 +20,4 @@ class LotteryManager(Manager):
         
     @staticmethod
     def update_lottery_row(lottery: Lottery):
-        Manager.updte(lottery=lottery)
+        Manager.update(lottery=lottery)
