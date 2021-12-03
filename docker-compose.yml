@@ -5,6 +5,7 @@
 version: "3.6"
 
 services:
+            
   db:
     image: postgres:13
     restart: unless-stopped
@@ -33,12 +34,13 @@ services:
     depends_on:
       - db
       - migrations
+      - redis
 
   migrations:
     #
     # this service is used to apply migrations on db
     #
-    <<: *mib_messages
+    <<: *mib_lottery
     command: flask db upgrade
     env_file:
       - env_file
@@ -49,3 +51,5 @@ services:
 # Declaring all volumes
 volumes:
   pgdata: # for maintaing db data
+
+
