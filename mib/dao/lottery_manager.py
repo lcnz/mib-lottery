@@ -23,11 +23,4 @@ class LotteryManager(Manager):
         
     @staticmethod
     def update_lottery_row(lottery: Lottery):
-<<<<<<< HEAD
         Manager.update(lottery=lottery)
-
-    @staticmethod
-    def check_winner()
-=======
-        Manager.update(lottery=lottery)
->>>>>>> main
