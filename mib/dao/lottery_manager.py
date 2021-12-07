@@ -24,3 +24,22 @@ class LotteryManager(Manager):
     @staticmethod
     def update_lottery_row(lottery: Lottery):
         Manager.update(lottery=lottery)
+    
+    @staticmethod
+    def update_lottery_points(id: int, points: int):
+        
+        u = Lottery.query.get(id)
+        print(u.points)
+
+        summ = u.points + points
+
+        stmt = (
+            update(Lottery).
+            where(Lottery.id==id).
+            values(points=summ)
+        )
+        
+        db.session.execute(stmt)
+        db.session.commit() 
+        
+    

@@ -77,6 +77,26 @@ paths:
         default:
           description: Error while getting the user
 
+  /lottery/update_points:
+    post:
+      summary: update lottery points
+      tags: [ Lottery ]
+      operationId: mib.resources.lottery.update_lottery_points
+      requestBody:
+        description: update number for a row of the user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update_points'
+      responses: 
+        200:
+          description: Number setted
+        404:
+          description: row not found (user id not present)
+        default:
+          description: Error while getting the user
+
 
 
 components:
@@ -90,4 +110,19 @@ components:
           type: integer
           description: number selected to insert in the row for ticket number
           example: 23
+
+    Update_points:
+      required:
+        - userid
+        - value
+      type: object
+      properties:
+        userid:
+          type: integer
+          description: user identificator
+          example: 1
+        value:
+          type: integer
+          description: value to add
+          example: 20
     

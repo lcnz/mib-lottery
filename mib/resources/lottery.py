@@ -61,3 +61,16 @@ def select_number(id):
     print("NEW ROW: ---> ", retrieve_by_id(id))
 
     return {'status': 'success', 'about': 'lottery number selected'}, 201
+
+def update_lottery_points():
+    user_id = request.get_json().get('userid')
+    val = request.get_json().get('value')
+
+    lottery_row = LotteryManager.retrieve_by_id(user_id)
+    if lottery_row is None:
+        response = {'message': 'error'}
+        return jsonify(response), 404
+    else:
+        LotteryManager.update_lottery_points(user_id, val)
+        response = {'message':'success'}
+        return response, 200
