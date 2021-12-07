@@ -11,9 +11,9 @@ class Lottery(db.Model):
 
     def __init__(self, *args, **kw):
         super(Lottery, self).__init__(*args, **kw)
-        
-    def set_id(self, val):
-        self.id = val
+    
+    def set_id(self,id):
+        self.id = id
 
     def set_ticket_number(self, number):
         self.ticket_number = number

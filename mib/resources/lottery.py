@@ -9,9 +9,6 @@ def retrieve_by_id(id):
     if lottery_row is None:
         response = {'status': 'Id of user not present'}
         return jsonify(response), 404
-
-    print("THIS IS THE ROW: ")
-    print(lottery_row)
     response = {'status': 'success', 'lottery_row': lottery_row.serialize()}
     return jsonify(response), 200 
 
