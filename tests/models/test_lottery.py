@@ -18,7 +18,7 @@ class TestLottery(ModelTest):
 
     @staticmethod
     def assertLotteryEquals(value, expected):
-        t = unittest.FunctionTestCase(TestUser)
+        t = unittest.FunctionTestCase(TestLottery)
         t.assertEqual(value.id, expected.id)
         t.assertEqual(value.ticket_number, expected.ticket_number)
         t.assertEqual(value.points, expected.points)
