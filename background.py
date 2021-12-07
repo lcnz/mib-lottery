@@ -37,15 +37,17 @@ def lottery():
         from mib.dao.lottery_manager import LotteryManager
         #from sqlalchemy import update
 
-        winner = random.randrange(1,100)#exctract a random number in [1,99]
+        #winner = random.randrange(1,100)#exctract a random number in [1,99]
+        winner = 10
         print("lucky number -----", winner)
         players = LotteryManager.retrieve_active_players()     #users who play the lottery
         if not players:
             return []
         for p in players:
-            print(loooooop)
+            print("loooooop")
             #LotteryManager.check_winner(p) #
-            if p.lottery_ticket_number == winner:      # if player's number is the extracted number, then he wins
+            if p.ticket_number == winner:      # if player's number is the extracted number, then he wins
+                print(p.points)
                 p.add_points(5)                   #winner user gains 5 points
                 
                 """Background task to send an email with Flask-Mail."""
@@ -64,8 +66,8 @@ def lottery():
                 msg.body = email_data['body']
                 mail.send(msg)"""
             p.unset_ticket_number()        #restore default value for every player at the end of lottery extraction
-            print()
-        LotteryManager.update_lottery_row(p)  
+            print(p.points)
+            LotteryManager.update_lottery_row(p)  
         return []  
     
 
