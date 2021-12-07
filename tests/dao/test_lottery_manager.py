@@ -27,4 +27,5 @@ class TestLotteryManager(DaoTest):
             lottery1 = self.lottery_manager.retrieve_by_id(lottery.id)
             self.test_lottery.assertLotteryEquals(lottery1, lottery)
 
-        print(self.lottery_manager.retrieve_active_players())
+        self.lottery_manager.retrieve_active_players() 
+        
