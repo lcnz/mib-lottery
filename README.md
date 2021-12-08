@@ -1,6 +1,5 @@
 
-[![Build Status](https://app.travis-ci.com/lcnz/mib-lottery.svg?branch=master)](https://app.travis-ci.com/lcnz/mib-lottery)
-
+[![Build Status](https://app.travis-ci.com/lcnz/mib-lottery.svg?branch=main)](https://app.travis-ci.com/lcnz/mib-lottery)
 [![Coverage Status](https://coveralls.io/repos/github/lcnz/mib-lottery/badge.svg)](https://coveralls.io/github/lcnz/mib-lottery)
 
 # Message in A Bottle - users
