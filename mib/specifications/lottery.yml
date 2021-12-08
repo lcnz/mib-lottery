@@ -70,7 +70,7 @@ paths:
               required: ['val_']
               $ref: '#/components/schemas/Update_number'
       responses: 
-        200:
+        201:
           description: Number setted
         404:
           description: row not found (user id not present)

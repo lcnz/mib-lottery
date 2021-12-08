@@ -7,6 +7,7 @@ from random import randrange
 
 class TestLottery(ModelTest):
 
+
     faker = Faker()
 
     @classmethod
@@ -25,7 +26,7 @@ class TestLottery(ModelTest):
         
     @staticmethod
     def generate_random_lottery_row():
-        id = randrange(100)
+        id = randrange(100000)
         ticket_number = randrange(100)
         points = 0
 
