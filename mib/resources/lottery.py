@@ -30,11 +30,6 @@ def lottery_create_user(id):
     #adding the row to the database
     user = LotteryManager.create_lottery(lottery)
     
-    #DEBUG
-    print("THE NEW ROW HAS BEEN CREATED")
-    print("THE ID JUST ADDED IS ", id)
-    print("TRYING TO RETRIEVE THE ROW ---> ", retrieve_by_id(id))
-
     return {'status': 'success', 'about': 'lottery_user created'}, 201
 
 
@@ -46,18 +41,12 @@ def select_number(id):
         return jsonify(response), 404
 
     #selecting the number
-    print('SELEC NUMBEE --> ARRIVA QUESTO --> ', request.get_json())
-    
-    
     selected_number = request.get_json().get('val_')
     lottery_row.set_ticket_number(selected_number)
     LotteryManager.update_lottery_row(lottery_row)
 
-    #DEBUG
-    print("THE ROW HAS BEEN UPDATED")
-    print("NEW ROW: ---> ", retrieve_by_id(id))
-
     return {'status': 'success', 'about': 'lottery number selected'}, 201
+
 
 def update_lottery_points():
     user_id = request.get_json().get('userid')

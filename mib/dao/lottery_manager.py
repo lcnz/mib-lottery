@@ -29,7 +29,6 @@ class LotteryManager(Manager):
     def update_lottery_points(id: int, points: int):
         
         u = Lottery.query.get(id)
-        print(u.points)
 
         summ = u.points + points
 

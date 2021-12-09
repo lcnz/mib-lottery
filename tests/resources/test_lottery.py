@@ -17,8 +17,6 @@ class TestLottery(ViewTest):
         
         #create again the same user
         resp = self.client.post('/lottery/555')
-        print(resp.data)
-        print(resp.status_code)
         assert resp.status_code == 409
         
         #select a number 
